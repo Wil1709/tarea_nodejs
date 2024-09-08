@@ -38,7 +38,7 @@ crud_estudiantes.cud = (req,res)=>{
     if (btn_crear){
         conectar.query('INSERT INTO estudiantes SET ?',{carne:carne,nombres:nombres, apellidos:apellidos,direccion:direccion,telefono:telefono,correo_electronico:correo_electronico,fecha_nacimiento:fecha_nacimiento,id_tipo_sangre:id_tipo_sangre}, (error, results)=>{
             if(error){
-                res.status(500).send('Error al crear el estudiante.');
+                res.status(500).send('Error al Crear el Estudiante.');
                 throw error;
             }else{
                  
@@ -51,7 +51,7 @@ crud_estudiantes.cud = (req,res)=>{
     if (btn_actualizar){
         conectar.query('UPDATE estudiantes SET ? WHERE id_estudiante = ?',[{carne:carne,nombres:nombres, apellidos:apellidos,direccion:direccion,telefono:telefono,correo_electronico:correo_electronico,fecha_nacimiento:fecha_nacimiento,id_tipo_sangre:id_tipo_sangre},id_estudiante], (error, results)=>{
             if(error){
-                res.status(500).send('Error al actualizar los datos del estudiante.');
+                res.status(500).send('Error al Actualizar los Datos del Estudiante.');
                 throw error;
             }else{
                  
@@ -63,7 +63,7 @@ crud_estudiantes.cud = (req,res)=>{
     if (btn_borrar){
         conectar.query('DELETE FROM estudiantes WHERE id_estudiante = ?',[id_estudiante], (error, results)=>{
             if(error){
-                res.status(500).send('Error al eliminar los datos del estudiante.');
+                res.status(500).send('Error al Eliminar el Estudiante.');
                 throw error;
             }else{
                  

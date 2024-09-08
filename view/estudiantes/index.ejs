@@ -34,7 +34,7 @@
 </header>
 
 <div class="container mt-5">
-  <h1 class="text-center">Formulario Estudiantes</h1>
+  <h1 class="text-center">Estudiantes</h1>
 <!-- Botón para abrir el modal -->
 <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#formModal">
   Crear Nuevo
@@ -87,7 +87,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="formModalLabel">Formulario Estudiantes</h5>
+        <h5 class="modal-title" id="formModalLabel">Datos de Estudiantes</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Verifica si el botón presionado es "Crear" o "Actualizar"
     const clickedButton = document.activeElement.id;
     if ((clickedButton === 'btn_crear' || clickedButton === 'btn_actualizar') && !carnetPattern.test(carnetInput.value)) {
-        alert('El formato del carnet debe ser E001 a E999.');
+        alert('El rango del carnet debe ser desde E001 hasta E999.');
         event.preventDefault();
     } else if (clickedButton === 'btn_borrar') {
         // Si el botón presionado es "Borrar", previene la validación y llama a la función de confirmación
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function confirmarEliminacion(event) {
     const id = document.getElementById('txt_id').value;
 
-    if (confirm('¿Estás seguro de que quieres eliminar este registro?')) {
+    if (confirm('¿Seguro de que quieres eliminar este estudiante?')) {
         // Si el usuario confirma, procede con la eliminación
         fetch('/crud_e', {
             method: 'POST',
@@ -207,13 +207,13 @@ function confirmarEliminacion(event) {
         })
         .then(response => response.text())
         .then(data => {
-            alert('Registro eliminado correctamente.');
+            alert('Estudiante Eliminado Correctamente.');
             location.reload();
         })
         .catch(error => console.error('Error:', error));
     } else {
         // Si el usuario cancela, no hace nada
-        alert('Eliminación cancelada por el usuario.');
+        alert('Eliminación de Estudiante Cancelada por el Usuario.');
     }
   }
 });
